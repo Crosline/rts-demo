@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: GridObjSoldier
+  m_EditorClassIdentifier: Assembly-CSharp::SoldierScriptable
+  objName: Soldier 1
+  info: Relentless soldiers who's unstoppable, 10HP, 10DMG
+  maxHealth: 10
+  width: 1
+  height: 1
+  sprite: {fileID: -7240522410925616685, guid: 192c811a329f4cf4382c3c93701a7535, type: 3}
+  damage: 10

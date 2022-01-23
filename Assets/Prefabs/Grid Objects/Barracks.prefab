@@ -1,0 +1,109 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4313995678894531478
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 51624323706654082, guid: f739d6b9ef832544581b8fa8ef80dbca, type: 3}
+      propertyPath: m_Size.x
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 51624323706654082, guid: f739d6b9ef832544581b8fa8ef80dbca, type: 3}
+      propertyPath: m_Size.y
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 51624323706654082, guid: f739d6b9ef832544581b8fa8ef80dbca, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 8845132338452742274, guid: 192c811a329f4cf4382c3c93701a7535, type: 3}
+    - target: {fileID: 51624323706654082, guid: f739d6b9ef832544581b8fa8ef80dbca, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4859170456130619408, guid: f739d6b9ef832544581b8fa8ef80dbca, type: 3}
+      propertyPath: m_Name
+      value: Barracks
+      objectReference: {fileID: 0}
+    - target: {fileID: 4859170456130619408, guid: f739d6b9ef832544581b8fa8ef80dbca, type: 3}
+      propertyPath: m_TagString
+      value: Barracks
+      objectReference: {fileID: 0}
+    - target: {fileID: 5652059868824900584, guid: f739d6b9ef832544581b8fa8ef80dbca, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5652059868824900584, guid: f739d6b9ef832544581b8fa8ef80dbca, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5652059868824900584, guid: f739d6b9ef832544581b8fa8ef80dbca, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5652059868824900584, guid: f739d6b9ef832544581b8fa8ef80dbca, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5652059868824900584, guid: f739d6b9ef832544581b8fa8ef80dbca, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5652059868824900584, guid: f739d6b9ef832544581b8fa8ef80dbca, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5652059868824900584, guid: f739d6b9ef832544581b8fa8ef80dbca, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5652059868824900584, guid: f739d6b9ef832544581b8fa8ef80dbca, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5652059868824900584, guid: f739d6b9ef832544581b8fa8ef80dbca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5652059868824900584, guid: f739d6b9ef832544581b8fa8ef80dbca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5652059868824900584, guid: f739d6b9ef832544581b8fa8ef80dbca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5423872874996346615, guid: f739d6b9ef832544581b8fa8ef80dbca, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: f739d6b9ef832544581b8fa8ef80dbca, type: 3}
+--- !u!1 &8696831304222190470 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4859170456130619408, guid: f739d6b9ef832544581b8fa8ef80dbca, type: 3}
+  m_PrefabInstance: {fileID: 4313995678894531478}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &4280966364700225044 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 51624323706654082, guid: f739d6b9ef832544581b8fa8ef80dbca, type: 3}
+  m_PrefabInstance: {fileID: 4313995678894531478}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4354511264627822633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8696831304222190470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f8d6a2c01cecb048a16bda3c1948f9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectDetails: {fileID: 11400000, guid: bfb3ff3e941050b4090ebf75189852f5, type: 2}
+  spriteRenderer: {fileID: 4280966364700225044}
+  soldiers:
+  - {fileID: 7210812478328358435, guid: e6beea9a1993fc84dba8efd3f376abb8, type: 3}
+  - {fileID: 7210812478328358435, guid: 40883d2c0ea898145bbf69bdff15cef0, type: 3}
+  - {fileID: 7210812478328358435, guid: 046587bc66311454cae5c206e97886dd, type: 3}
+  selectedSoldier: 0
