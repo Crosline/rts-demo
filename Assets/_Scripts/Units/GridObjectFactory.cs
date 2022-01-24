@@ -56,27 +56,41 @@ public class GridObjectFactory : Singleton<GridObjectFactory> {
 				temp.x = x;
 				temp.y = y;
 				return objects[0];
-			case "Soldier 1":
+			case "Soldier":
 				temp = objects[2].GetComponent<GridObject>();
 				temp.SetObjectDetails(scriptables[(int)Soldiers.Soldier1]);
 				temp.x = x;
 				temp.y = y;
 				((Soldier)temp).damage = 10;
+
 				return objects[2];
+			case "Soldier 1":
+				GameObject soldier = PoolManager.Instance.SpawnObject(objects[2], GridManager.Instance.grid.GetWorldPosition(temp.x, temp.y), Quaternion.identity);
+				temp = soldier.GetComponent<GridObject>();
+				temp.SetObjectDetails(scriptables[(int)Soldiers.Soldier1]);
+				temp.x = x;
+				temp.y = y;
+				((Soldier)temp).damage = 10;
+				return soldier;
 			case "Soldier 2":
-				temp = objects[2].GetComponent<GridObject>();
+
+				soldier = PoolManager.Instance.SpawnObject(objects[2], GridManager.Instance.grid.GetWorldPosition(temp.x, temp.y), Quaternion.identity);
+				temp = soldier.GetComponent<GridObject>();
 				temp.SetObjectDetails(scriptables[(int)Soldiers.Soldier2]);
 				temp.x = x;
 				temp.y = y;
 				((Soldier)temp).damage = 5;
-				return objects[2];
+				return soldier;
 			case "Soldier 3":
-				temp = objects[2].GetComponent<GridObject>();
+
+				soldier = PoolManager.Instance.SpawnObject(objects[2], GridManager.Instance.grid.GetWorldPosition(temp.x, temp.y), Quaternion.identity);
+				temp = soldier.GetComponent<GridObject>();
+
 				temp.SetObjectDetails(scriptables[(int)Soldiers.Soldier3]);
 				temp.x = x;
 				temp.y = y;
 				((Soldier)temp).damage = 2;
-				return objects[2];
+				return soldier;
 			default:
 				return null;
 		}

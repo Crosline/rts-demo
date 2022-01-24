@@ -47,7 +47,12 @@ public class GridObject : MonoBehaviour, IHealth {
     public void Die() {
 
         GridManager.Instance.grid.SetValueWithSize(x, y, Width, Height, null);
-        Destroy(this.gameObject);
+
+        if (transform.CompareTag("Soldier")) {
+            PoolManager.Instance.ReleaseObject(this.gameObject);
+        } else {
+            Destroy(this.gameObject);
+        }
     }
 
     public void Damage(int damageAmount) {

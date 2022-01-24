@@ -99,6 +99,8 @@ public class InputHandler : MonoBehaviour {
         Grid<GridObject> _grid = GridManager.Instance.grid;
         if (_grid.GetXY(pos, out var x, out var y)) {
             var gridObject = GridObjectFactory.Instance.GetGridObject(selectedProduct, x, y);
+
+            Debug.Log("GridObj: " + gridObject);
             var gridObj = gridObject.GetComponent<GridObject>();
 
             ghostSprite.sprite = gridObj.ObjectSprite;

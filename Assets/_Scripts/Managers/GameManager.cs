@@ -49,6 +49,8 @@ public class GameManager : Singleton<GameManager> {
 
     private void Init() {
 
+        PoolManager.Instance.Init();
+
         GridManager.Instance.GridSetup();
 
         ChangeState(GameState.Selecting);
