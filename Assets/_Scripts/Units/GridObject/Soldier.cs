@@ -9,16 +9,24 @@ public class Soldier : GridObject {
 
     private bool isMoving;
 
+    private GridObject attacking;
+
     public void Move(Vector2Int vector2) {
 
         StopAllCoroutines();
 
-        List<PathNode> paths;
+        if (attacking != null) {
+            attacking.SpriteRenderer.ChangeColor(Color.white);
+        }
+
 
         GridObject temp = GridManager.Instance.grid.GetValue(vector2.x, vector2.y);
+
+        List<PathNode> paths;
+
         if (temp != null) {
-            Vector2Int vec2 = GridManager.Instance.pathfinding.GetClosestNode(temp.x, temp.y);
-            paths = GridManager.Instance.pathfinding.FindPath(x, y, vec2.x, vec2.y);
+            Vector2Int attackingPos = GridManager.Instance.pathfinding.GetClosestNode(temp.x, temp.y);
+            paths = GridManager.Instance.pathfinding.FindPath(x, y, attackingPos.x, attackingPos.y);
         } else {
 
             paths = GridManager.Instance.pathfinding.FindPath(x, y, vector2.x, vector2.y);
@@ -29,8 +37,7 @@ public class Soldier : GridObject {
 
 
     public void Hit(GridObject gridObject) {
-
-        StopAllCoroutines();
+        attacking = gridObject;
 
         if (gridObject == this) return;
 
@@ -46,6 +53,8 @@ public class Soldier : GridObject {
 
         if (paths != null) {
 
+            isMoving = true;
+
             GridManager.Instance.grid.SetValue(x, y, null);
 
             this.x = paths.Last().x;
@@ -54,7 +63,6 @@ public class Soldier : GridObject {
             GridManager.Instance.grid.SetValue(x, y, this);
 
 
-            isMoving = true;
 
             for (int i = 1; i < paths.Count; i++) {
                 Vector3 newPos = GridManager.Instance.grid.GetWorldPosition(paths[i].x, paths[i].y);
@@ -84,8 +92,6 @@ public class Soldier : GridObject {
     }
 
     IEnumerator HitCoroutine(GridObject gridObject) {
-        yield return new WaitForSeconds(0.1f);
-
         yield return new WaitUntil(IsMoving);
 
         while (gridObject != null) {
@@ -98,7 +104,7 @@ public class Soldier : GridObject {
                 break;
             gridObject.SpriteRenderer.color = Color.red;
 
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(1f);
 
             gridObject.SpriteRenderer.color = Color.white;
 
