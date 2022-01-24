@@ -70,6 +70,7 @@ public class GridObjectFactory : Singleton<GridObjectFactory> {
 				temp.SetObjectDetails(scriptables[(int)Soldiers.Soldier1]);
 				temp.x = x;
 				temp.y = y;
+				temp.SpriteRenderer.ChangeColor(Color.white);
 				((Soldier)temp).damage = 10;
 				return soldier;
 			case "Soldier 2":
@@ -79,6 +80,7 @@ public class GridObjectFactory : Singleton<GridObjectFactory> {
 				temp.SetObjectDetails(scriptables[(int)Soldiers.Soldier2]);
 				temp.x = x;
 				temp.y = y;
+				temp.SpriteRenderer.ChangeColor(Color.white);
 				((Soldier)temp).damage = 5;
 				return soldier;
 			case "Soldier 3":
@@ -89,6 +91,7 @@ public class GridObjectFactory : Singleton<GridObjectFactory> {
 				temp.SetObjectDetails(scriptables[(int)Soldiers.Soldier3]);
 				temp.x = x;
 				temp.y = y;
+				temp.SpriteRenderer.ChangeColor(Color.white);
 				((Soldier)temp).damage = 2;
 				return soldier;
 			default:
