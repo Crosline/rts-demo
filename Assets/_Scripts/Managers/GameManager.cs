@@ -81,6 +81,9 @@ public class GameManager : Singleton<GameManager> {
     public void RestartGame() {
         ChangeState(GameState.Restart);
     }
+    public void QuitGame() {
+        Application.Quit();
+    }
 
     #endregion
 
