@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
-public class GridObject : PathNode, IHealth {
+public class GridObject : MonoBehaviour, IHealth {
 
-    private int health;
+    public int x;
+    public int y;
+
+    public int health;
 
 
     [SerializeField]
@@ -23,26 +26,9 @@ public class GridObject : PathNode, IHealth {
     public int Width => objectDetails.width;
     public int Height => objectDetails.height;
 
-    private Transform tTransform;
-
     private void Init() {
         health = MaxHealth;
         spriteRenderer.sprite = ObjectSprite;
-        isWalkable = false;
-    }
-
-    public void SetGridObjectCoord(int x, int y) {
-        this.x = x;
-        this.y = y;
-    }
-    public void SetTransform(Transform transform) {
-        this.tTransform = transform;
-    }
-    public void ClearTransform(int x, int y) {
-        tTransform = null;
-    }
-    public bool CanBuild() {
-        return tTransform == null;
     }
 
     public void SetObjectDetails(GridObjectScriptable objectDetails) {
@@ -59,20 +45,22 @@ public class GridObject : PathNode, IHealth {
             health = MaxHealth;
     }
     public void Die() {
-        if (this.transform.CompareTag("Soldier"))
-            return;
+
+        GridManager.Instance.grid.SetValueWithSize(x, y, Width, Height, null);
         Destroy(this.gameObject);
     }
 
     public void Damage(int damageAmount) {
         if (damageAmount <= 0) return;
 
+
         health -= damageAmount;
 
-        if (health < 0)
+        if (health <= 0) {
             health = 0;
+            Die();
+        }
 
-        Die();
     }
 
 

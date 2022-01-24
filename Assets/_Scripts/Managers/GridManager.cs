@@ -35,7 +35,9 @@ public class GridManager : Singleton<GridManager> {
     public void GridSetup() {
         grid = new Grid<GridObject>(width, height, new Vector3Int(-width, -height, 0), cellSize);
 
-        pathfinding = new Pathfinding(grid);
+        pathfinding = new Pathfinding(width, height);
+
+        grid.OnGridValueChanged += UpdatePathNodes;
 
         DrawGrid();
     }
@@ -43,7 +45,14 @@ public class GridManager : Singleton<GridManager> {
     public void CleanGrid() {
         grid = null;
         gridCells.DestroyChildren();
+
+        grid.OnGridValueChanged -= UpdatePathNodes;
     }
+
+    private void UpdatePathNodes<T>(Grid<T>.GridEventArgs args) {
+        pathfinding.UpdateGrid(args.x, args.y, args.value);
+    }
+
     public void SetDeployLocation(Vector3 pos, bool remove = false) {
         DestroyDeployPointer();
 
@@ -53,11 +62,17 @@ public class GridManager : Singleton<GridManager> {
 
         deployGhost = Instantiate(gridPrefab);
         if (grid.GetXY(pos, out int x, out int y)) {
-            var deployPos = grid.GetWorldPosition(x, y);
-            deployGhost.transform.position = deployPos;
 
-            OnDeployPositionSet?.Invoke(deployPos);
+            var temp = grid.GetValue(x, y);
+            if (temp == null) {
+                var deployPos = grid.GetWorldPosition(x, y);
+                deployGhost.transform.position = deployPos;
 
+                OnDeployPositionSet?.Invoke(deployPos);
+            } else {
+
+                OnDeployPositionSet?.Invoke(grid.GetWorldPosition(x, y));
+            }
         }
         if (deployGhost.TryGetComponent<SpriteRenderer>(out SpriteRenderer renderer)) {
             renderer.color = Color.blue;
@@ -91,7 +106,7 @@ public class GridManager : Singleton<GridManager> {
         }
     }
 
-    private void DestroyDeployPointer() {
+    public void DestroyDeployPointer() {
         if (deployGhost != null) {
             Destroy(deployGhost);
         }

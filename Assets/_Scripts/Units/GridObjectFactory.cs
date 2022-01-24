@@ -28,42 +28,54 @@ public class GridObjectFactory : Singleton<GridObjectFactory> {
 			case "Barracks":
 				temp = objects[1].GetComponent<GridObject>();
 				temp.SetObjectDetails(scriptables[(int) Scriptables.Barracks]);
-				temp.SetGridObjectCoord(x, y);
+				temp.x = x;
+				temp.y = y;
 				return objects[1];
 			case "House":
 				temp.SetObjectDetails(scriptables[(int)Scriptables.House]);
-				temp.SetGridObjectCoord(x, y);
+				temp.x = x;
+				temp.y = y;
 				return objects[0];
 			case "Mine":
 				temp.SetObjectDetails(scriptables[(int)Scriptables.Mine]);
-				temp.SetGridObjectCoord(x, y);
+				temp.x = x;
+				temp.y = y;
 				return objects[0];
 			case "Powerplant":
 				temp.SetObjectDetails(scriptables[(int)Scriptables.Powerplant]);
-				temp.SetGridObjectCoord(x, y);
+				temp.x = x;
+				temp.y = y;
 				return objects[0];
 			case "Town Center":
 				temp.SetObjectDetails(scriptables[(int)Scriptables.TownCenter]);
-				temp.SetGridObjectCoord(x, y);
+				temp.x = x;
+				temp.y = y;
 				return objects[0];
 			case "Wind Mill":
 				temp.SetObjectDetails(scriptables[(int)Scriptables.WindMill]);
-				temp.SetGridObjectCoord(x, y);
+				temp.x = x;
+				temp.y = y;
 				return objects[0];
 			case "Soldier 1":
 				temp = objects[2].GetComponent<GridObject>();
 				temp.SetObjectDetails(scriptables[(int)Soldiers.Soldier1]);
-				temp.SetGridObjectCoord(x, y);
+				temp.x = x;
+				temp.y = y;
+				((Soldier)temp).damage = 10;
 				return objects[2];
 			case "Soldier 2":
 				temp = objects[2].GetComponent<GridObject>();
 				temp.SetObjectDetails(scriptables[(int)Soldiers.Soldier2]);
-				temp.SetGridObjectCoord(x, y);
+				temp.x = x;
+				temp.y = y;
+				((Soldier)temp).damage = 5;
 				return objects[2];
 			case "Soldier 3":
 				temp = objects[2].GetComponent<GridObject>();
 				temp.SetObjectDetails(scriptables[(int)Soldiers.Soldier3]);
-				temp.SetGridObjectCoord(x, y);
+				temp.x = x;
+				temp.y = y;
+				((Soldier)temp).damage = 2;
 				return objects[2];
 			default:
 				return null;

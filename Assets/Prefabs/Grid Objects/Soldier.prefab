@@ -18,14 +18,14 @@ PrefabInstance:
     - target: {fileID: 51624323706654082, guid: f739d6b9ef832544581b8fa8ef80dbca, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: -6021866884601234264, guid: 192c811a329f4cf4382c3c93701a7535, type: 3}
     - target: {fileID: 51624323706654082, guid: f739d6b9ef832544581b8fa8ef80dbca, type: 3}
       propertyPath: m_WasSpriteAssigned
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4859170456130619408, guid: f739d6b9ef832544581b8fa8ef80dbca, type: 3}
       propertyPath: m_Name
-      value: Soldier 1
+      value: Soldier
       objectReference: {fileID: 0}
     - target: {fileID: 4859170456130619408, guid: f739d6b9ef832544581b8fa8ef80dbca, type: 3}
       propertyPath: m_TagString
@@ -104,6 +104,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a1936658ac80a444ac4438cd86bb395, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectDetails: {fileID: 11400000, guid: 3323f28cf6875d94a91bf5ca3a492328, type: 2}
+  x: 19
+  y: 13
+  health: 10
+  objectDetails: {fileID: 11400000, guid: 442bcd2bffb8d8241ac5bfd6780079ee, type: 2}
   spriteRenderer: {fileID: 7533515051673382658}
-  damage: 10
+  damage: 5

@@ -50,7 +50,7 @@ public class InputHandler : MonoBehaviour {
         CheckGridObject();
 
         if (isGridObjectSelected) {
-            DeployPosition(pos);
+            CheckGridObjectInput(pos);
         }
 
         if (Input.GetButtonDown("Cancel")) {
@@ -80,14 +80,18 @@ public class InputHandler : MonoBehaviour {
 
 
     }
-    private void DeployPosition(Vector3 pos) {
+    private void CheckGridObjectInput(Vector3 pos) {
         if (!Input.GetMouseButtonDown(1)) return;
 
         if (selectedGridObject.CompareTag("Barracks")) {
 
             GridManager.Instance.SetDeployLocation(pos);
+        } else if (selectedGridObject.CompareTag("Soldier")) {
+
+            GridManager.Instance.SetDeployLocation(pos);
         } else {
-            GridManager.Instance.SetDeployLocation(pos, true);
+
+            GridManager.Instance.DestroyDeployPointer();
         }
     }
 
@@ -136,6 +140,17 @@ public class InputHandler : MonoBehaviour {
             Barracks barracks = (Barracks)selectedGridObject;
 
             barracks.SetDeployPos(pos);
+        } else if (selectedGridObject.CompareTag("Soldier")) {
+            Soldier soldier = (Soldier)selectedGridObject;
+
+            if (GridManager.Instance.grid.GetXY(pos, out int x, out int y)) {
+                GridObject hitobj = GridManager.Instance.grid.GetValue(x, y);
+                if (hitobj == null)
+                    soldier.Move(new Vector2Int(x, y));
+                else {
+                    soldier.Hit(hitobj);
+                }
+            }
         }
     }
 

@@ -100,10 +100,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f8d6a2c01cecb048a16bda3c1948f9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isWalkable: 0
+  gCost: 0
+  hCost: 0
+  fCost: 0
+  lastNode: {fileID: 0}
   objectDetails: {fileID: 11400000, guid: bfb3ff3e941050b4090ebf75189852f5, type: 2}
   spriteRenderer: {fileID: 4280966364700225044}
   soldiers:
-  - {fileID: 7210812478328358435, guid: e6beea9a1993fc84dba8efd3f376abb8, type: 3}
-  - {fileID: 7210812478328358435, guid: 40883d2c0ea898145bbf69bdff15cef0, type: 3}
-  - {fileID: 7210812478328358435, guid: 046587bc66311454cae5c206e97886dd, type: 3}
+  - {fileID: 11400000, guid: 3323f28cf6875d94a91bf5ca3a492328, type: 2}
+  - {fileID: 11400000, guid: 442bcd2bffb8d8241ac5bfd6780079ee, type: 2}
+  - {fileID: 11400000, guid: 0c8a1a494a216e749bc3d2ef5929b7b2, type: 2}
   selectedSoldier: 0

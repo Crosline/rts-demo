@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class PathNode : MonoBehaviour {
-    public int x { get; internal set; }
-    public int y { get; internal set; }
+public class PathNode {
+
+    public int x = 0;
+    public int y = 0;
 
     public bool isWalkable = true;
 
@@ -13,6 +14,12 @@ public abstract class PathNode : MonoBehaviour {
     public int fCost;
 
     public PathNode lastNode;
+
+    public PathNode(int x, int y) {
+        this.x = x;
+        this.y = y;
+        this.isWalkable = true;
+    }
 
     public void CalculateFCost() {
         fCost = gCost + hCost;

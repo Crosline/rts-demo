@@ -3,8 +3,9 @@ using UnityEngine;
 
 public class Grid<T> {
 
-    public event EventHandler<GridEventArgs> OnGridValueChanged;
+    public Action<GridEventArgs> OnGridValueChanged;
     public class GridEventArgs : EventArgs {
+        public T value;
         public int x;
         public int y;
     }
@@ -69,15 +70,15 @@ public class Grid<T> {
         return WithinBounds(x, y);
     }
 
-    private void SetValue(int x, int y, T value, bool check = false) {
+    public void SetValue(int x, int y, T value, bool check = false) {
         if (!check)
             if (!WithinBounds(x, y)) return;
 
         _gridArray[x, y] = value;
-        TriggerGridChanged(x, y);
+        TriggerGridChanged(x, y, value);
     }
-    public void TriggerGridChanged(int x, int y) {
-        OnGridValueChanged?.Invoke(this, new GridEventArgs { x = x, y = y });
+    public void TriggerGridChanged(int x, int y, T value) {
+        OnGridValueChanged?.Invoke(new GridEventArgs { x = x, y = y , value = value});
     }
 
     private void SetValue(Vector3 worldPos, T value) {

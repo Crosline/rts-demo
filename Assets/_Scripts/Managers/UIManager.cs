@@ -104,17 +104,17 @@ public class UIManager : MonoBehaviour {
 
     }
 
-    private void SetProduct(GridObject product) {
+    private void SetProduct(GridObjectScriptable product) {
 
-        if (!product.CompareTag("Soldier")) return;
+        if (product == null) return;
 
         productionCanvas?.SetActive(true);
 
-        productText.text = product.ObjectName;
+        productText.text = product.objName;
 
-        productInfoText.text = product.ObjectInfo;
+        productInfoText.text = product.info;
 
-        productImage.sprite = product.ObjectSprite;
+        productImage.sprite = product.sprite;
 
         productImage.Fade(1f);
 

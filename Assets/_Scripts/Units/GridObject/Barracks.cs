@@ -2,32 +2,33 @@ using UnityEngine;
 
 public class Barracks : GridObject {
 
-    public GridObject[] soldiers;
+    public GridObjectScriptable[] soldiers;
     public int selectedSoldier;
     private Vector3 deployPosition = Vector3.one * 0.5f;
 
     public void SpawnSoldier() {
 
-        if (GridManager.Instance.grid.GetXY(transform.position, out var tempx, out var tempy)) {
+        Vector2Int temp = GridManager.Instance.pathfinding.GetClosestNode(x, y);
 
-
-            var gridObject = GridObjectFactory.Instance.GetGridObject($"Soldier {selectedSoldier + 1}", tempx, tempy);
+            var gridObject = GridObjectFactory.Instance.GetGridObject($"Soldier {selectedSoldier + 1}", temp.x, temp.y);
             var gridObj = gridObject.GetComponent<GridObject>();
 
-            if (GridManager.Instance.grid.GetXY(GridManager.Instance.pathfinding.GetClosestNode(x, y), out int a, out int b)) {
-                var obj = Instantiate(gridObj);
-                obj.transform.position = new Vector3(a, b);
+            var obj = Instantiate(gridObj);
+            obj.transform.position = GridManager.Instance.grid.GetWorldPosition(temp.x, temp.y);
 
-                GridManager.Instance.grid.SetValueWithSize(x, y, gridObj.Width, gridObj.Height, obj.GetComponent<GridObject>());
+            GridManager.Instance.grid.SetValueWithSize(temp.x, temp.y, gridObj.Width, gridObj.Height, obj.GetComponent<GridObject>());
+
+        if (deployPosition != Vector3.one * 0.5f) {
+            if (GridManager.Instance.grid.GetXY(deployPosition, out var a, out var b)) {
+                obj.GetComponent<Soldier>().Move(new Vector2Int(a, b));
             }
+
         }
-
-
 
 
     }
 
-    private void AddSoldiers(GridObject[] soldiers) {
+    private void AddSoldiers(GridObjectScriptable[] soldiers) {
         this.soldiers = soldiers;
     }
 
