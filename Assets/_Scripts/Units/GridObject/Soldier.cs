@@ -37,6 +37,11 @@ public class Soldier : GridObject {
 
 
     public void Hit(GridObject gridObject) {
+
+        if (attacking != null) {
+            attacking.SpriteRenderer.ChangeColor(Color.white);
+        }
+
         attacking = gridObject;
 
         if (gridObject == this) return;
