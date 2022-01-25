@@ -109,7 +109,7 @@ public class Soldier : GridObject {
                 break;
             gridObject.SpriteRenderer.color = Color.red;
 
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.1f);
 
             gridObject.SpriteRenderer.color = Color.white;
 
